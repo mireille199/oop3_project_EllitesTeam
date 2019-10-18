@@ -70,7 +70,112 @@ public class Ellites_Main {
 		
 		mainPane.setLayout(null);
 		
-			}
-}
+		pageLoad();
+		
+		 
+		Container content =  inforWindow.getContentPane(); // Get content pane
+		content.add(btnStudents);
+		content.add(btnCourse);
+		content.add(btnCourseUnits);
+		content.add(footer);
+		content.add(separator_2);
+		content.add(mainPane);
+		content.add(btnLectures);
+	}
 
-	
+	private void pageLoad() {
+		JPanel regPane = new JPanel();
+		regPane.setBackground(SystemColor.text);
+		regPane.setVisible(false);
+		regPane.setBounds(1, 1, 578, 410);
+		regPane.setForeground(Color.WHITE);
+		mainPane.add(regPane);
+		regPane.setLayout(null);
+		
+		btnSubmit = new JButton("Submit");
+		btnSubmit.setFont(new Font("SansSerif", Font.BOLD, 14));
+		btnSubmit.setBackground(SystemColor.textHighlight);
+		btnSubmit.setBounds(144, 327, 99, 40);
+		regPane.add(btnSubmit);
+		
+		btnCancel = new JButton("Cancel");
+		btnCancel.setForeground(Color.WHITE);
+		btnCancel.setFont(new Font("SansSerif", Font.BOLD, 14));
+		btnCancel.setBackground(SystemColor.textHighlight);
+		btnCancel.setBounds(334, 327, 99, 40);
+		regPane.add(btnCancel);
+		
+		btnUpdate = new JButton("Update");
+		btnUpdate.setVisible(false);
+		btnUpdate.setForeground(Color.WHITE);
+		btnUpdate.setFont(new Font("Dialog", Font.BOLD, 13));
+		btnUpdate.setBackground(new Color(0, 153, 51));
+		btnUpdate.setBounds(144, 327, 99, 40);
+		regPane.add(btnUpdate);
+		
+		lblFirstName = new JLabel("First Name:");
+		lblFirstName.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblFirstName.setBounds(32, 48, 85, 22);
+		regPane.add(lblFirstName);
+		
+		lblLastName = new JLabel("Last Name:");
+		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblLastName.setBounds(32, 100, 85, 22);
+		regPane.add(lblLastName);
+		
+		lblSex = new JLabel("Sex:");
+		lblSex.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblSex.setBounds(32, 149, 85, 22);
+		regPane.add(lblSex);
+		
+		lblCourse = new JLabel("Course:");
+		lblCourse.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblCourse.setBounds(32, 195, 85, 22);
+		regPane.add(lblCourse);
+		
+		lblRegister = new JLabel("Registration:");
+		lblRegister.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblRegister.setBounds(32, 248, 85, 22);
+		regPane.add(lblRegister);
+		
+		firstname = new JTextField();
+		firstname.setFont(new Font("SansSerif", Font.BOLD, 13));
+		firstname.setBounds(118, 45, 408, 30);
+		regPane.add(firstname);
+		firstname.setColumns(10);
+		
+		lastname = new JTextField();
+		lastname.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lastname.setColumns(10);
+		lastname.setBounds(118, 97, 408, 30);
+		regPane.add(lastname);
+		
+		gender = new JComboBox();
+		gender.setFont(new Font("SansSerif", Font.BOLD, 13));
+		gender.setModel(new DefaultComboBoxModel(new String[] {"Male", "Female"}));
+		gender.setBackground(SystemColor.text);
+		gender.setBounds(118, 146, 408, 30);
+		regPane.add(gender);
+		
+		course = new JTextField();
+		course.setFont(new Font("SansSerif", Font.BOLD, 13));
+		course.setColumns(10);
+		course.setBounds(118, 192, 408, 30);
+		regPane.add(course);
+		
+		reg = new JTextField();
+		reg.setFont(new Font("SansSerif", Font.BOLD, 13));
+		reg.setColumns(10);
+		reg.setBounds(118, 245, 408, 30);
+		regPane.add(reg);
+		
+		JPanel students = new JPanel();
+		students.setBackground(SystemColor.text);
+		students.setVisible(false);
+		students.setLayout(null);
+		students.setBounds(1, 1, 578, 350);
+		mainPane.add(students);
+		
+		
+	}
+}
