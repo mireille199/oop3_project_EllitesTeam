@@ -176,6 +176,91 @@ public class Ellites_Main {
 		students.setBounds(1, 1, 578, 350);
 		mainPane.add(students);
 		
+            //////////////
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setPreferredSize(new Dimension(0, 30));
+		inforWindow.setJMenuBar(menuBar);
+		
+		JMenu mnAction = new JMenu(" Action ");
+		mnAction.setFont(new Font(null, Font.BOLD, 13));
+		menuBar.add(mnAction);
+		
+		JMenuItem mntmLogout = new JMenuItem("Logout");
+		mntmLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				inforWindow.dispose();
+				LoginView loginwindow = new LoginView();
+			}
+		});
+		mnAction.add(mntmLogout);
+		
+		JSeparator sep1 = new JSeparator();
+		sep1.setMaximumSize(new Dimension(3, 90));
+		sep1.setOrientation(SwingConstants.VERTICAL);
+		menuBar.add(sep1);
+		
+		JMenu mnHelp = new JMenu("Help");
+		mnHelp.setFont(new Font(null, Font.BOLD, 13));
+		menuBar.add(mnHelp);
+		
+		JMenuItem mntmContacts = new JMenuItem("Contacts");
+		mnHelp.add(mntmContacts);
+		
+		JMenuItem mntmAboutUs = new JMenuItem("About Us");
+		mnHelp.add(mntmAboutUs);
+		
+		JSeparator sep2 = new JSeparator();
+		sep2.setMaximumSize(new Dimension(5, 90));
+		sep2.setOrientation(SwingConstants.VERTICAL);
+		menuBar.add(sep2);
+		
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String fn = firstname.getText();
+				String ln = lastname.getText();
+				String s = (String)gender.getSelectedItem();
+				String cr = course.getText();
+				String rg = reg.getText();
+				
+				if(fn.isEmpty() || ln.isEmpty()) {
+					JOptionPane.showMessageDialog(
+					null, "You must fill all fields !", "Ellites", 
+					JOptionPane.INFORMATION_MESSAGE);
+				} else {
+					String [] item= {fn,ln,s,rg,cr};
+					tabulate.addRow(item);
+					regPane.setVisible(false);
+					students.setVisible(true);
+				};
+			}
+		});
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				students.setVisible(true);
+				regPane.setVisible(false);
+			}
+		});
+		btnStudents.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent ae) {
+				btnStudents.setBackground(Color.BLUE);
+				btnStudents.setForeground(Color.WHITE);
+				students.setVisible(true);
+				regPane.setVisible(false);
+			}
+		});
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int row = table.getSelectedRow();
+				table.setValueAt(firstname.getText(), row, 0);
+				table.setValueAt(lastname.getText(), row, 1);
+				table.setValueAt(gender.getSelectedItem(), row, 2);
+				table.setValueAt(reg.getText(), row, 3);
+				table.setValueAt(course.getText(), row, 4);
+				students.setVisible(true);
+				regPane.setVisible(false);
+			}
+		});
 		
 	}
 }
