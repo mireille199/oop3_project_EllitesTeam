@@ -175,6 +175,37 @@ public class Ellites_Main {
 		students.setLayout(null);
 		students.setBounds(1, 1, 578, 350);
 		mainPane.add(students);
+
+		////////////////
+
+		btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				regPane.setVisible(true);
+				students.setVisible(false);
+				btnSubmit.setVisible(true);
+				btnUpdate.setVisible(false);
+			}
+		});
+		btnAdd.setBounds(47, 24, 99, 40);
+		btnAdd.setForeground(Color.WHITE);
+		btnAdd.setFont(new Font("SansSerif", Font.BOLD, 14));
+		btnAdd.setBackground(SystemColor.textHighlight);
+		students.add(btnAdd);
+		
+		btnEdit = new JButton("Edit");
+		btnEdit.setBounds(251, 24, 99, 40);
+		btnEdit.setForeground(Color.WHITE);
+		btnEdit.setFont(new Font("SansSerif", Font.BOLD, 14));
+		btnEdit.setBackground(SystemColor.textHighlight);
+		students.add(btnEdit);
+		
+		btnDelete = new JButton("Delete");
+		btnDelete.setBounds(450, 24, 99, 40);
+		btnDelete.setForeground(Color.WHITE);
+		btnDelete.setFont(new Font("SansSerif", Font.BOLD, 14));
+		btnDelete.setBackground(SystemColor.textHighlight);
+		students.add(btnDelete);
 		
             //////////////
 		JMenuBar menuBar = new JMenuBar();
